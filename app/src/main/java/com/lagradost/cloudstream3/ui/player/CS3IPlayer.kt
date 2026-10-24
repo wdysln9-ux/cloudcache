@@ -677,8 +677,9 @@ class CS3IPlayer : IPlayer {
     }
 
     override fun setPlaybackSpeed(speed: Float) {
-        exoPlayer?.setPlaybackSpeed(speed)
-        playBackSpeed = speed
+        val safeSpeed = speed.coerceIn(0.1f, 4.0f)
+        exoPlayer?.setPlaybackSpeed(safeSpeed)
+        playBackSpeed = safeSpeed
     }
 
     companion object {
