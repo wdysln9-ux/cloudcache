@@ -28,15 +28,15 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Build debug APKs
+      - name: Build stable debug APK
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug
+          ./gradlew assembleStableDebug
 
-      - name: Upload APKs
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: cloudcache-debug-apks
-          path: app/build/outputs/apk/**/*.apk
+          name: cloudcache-stable-debug-apk
+          path: app/build/outputs/apk/stable/debug/*.apk
           if-no-files-found: error
           retention-days: 7
