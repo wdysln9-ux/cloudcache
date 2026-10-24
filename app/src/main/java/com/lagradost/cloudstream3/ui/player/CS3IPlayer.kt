@@ -24,6 +24,7 @@ import androidx.media3.common.Format
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MimeTypes
 import androidx.media3.common.PlaybackException
+import androidx.media3.common.PlaybackParameters
 import androidx.media3.common.Player
 import androidx.media3.common.TrackGroup
 import androidx.media3.common.TrackSelectionOverride
@@ -678,7 +679,8 @@ class CS3IPlayer : IPlayer {
 
     override fun setPlaybackSpeed(speed: Float) {
         val safeSpeed = speed.coerceIn(0.1f, 4.0f)
-        exoPlayer?.setPlaybackSpeed(safeSpeed)
+        // Keep the original pitch while time-stretching audio at higher playback speeds.
+        exoPlayer?.setPlaybackParameters(PlaybackParameters(safeSpeed, 1.0f))
         playBackSpeed = safeSpeed
     }
 
