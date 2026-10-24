@@ -49,7 +49,7 @@
             android:thumbTint="?attr/white"
             android:value="1.0"
             android:valueFrom="0.1"
-            android:valueTo="2.0"
+            android:valueTo="4.0"
             app:labelStyle="@style/BlackLabel"
             app:thumbColor="?attr/white"
             app:tickVisible="false"
@@ -126,6 +126,32 @@
             android:nextFocusUp="@id/speed_bar"
             android:nextFocusDown="@id/speed_150"
             android:text="1.5x"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/speed_300"
+            style="@style/BlackButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:nextFocusLeft="@id/speed_200"
+            android:nextFocusRight="@id/speed_400"
+            android:nextFocusUp="@id/speed_plus"
+            android:nextFocusDown="@id/speed_300"
+            android:text="3.0x"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/speed_400"
+            style="@style/BlackButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:nextFocusLeft="@id/speed_300"
+            android:nextFocusRight="@id/speed_25"
+            android:nextFocusUp="@id/speed_plus"
+            android:nextFocusDown="@id/speed_400"
+            android:text="4.0x"
             tools:ignore="HardcodedText" />
 
         <com.google.android.material.button.MaterialButton
