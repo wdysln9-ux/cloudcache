@@ -928,7 +928,7 @@ open class FullScreenPlayer : AbstractPlayerFragment() {
         binding.speedText.text = "%.2fx".format(speed).replace(".0x", "x")
         // Android crashes if you don't round to an exact step size
         binding.speedBar.value =
-            (speed.coerceIn(0.1f, 2.0f) / binding.speedBar.stepSize).roundToInt()
+            (speed.coerceIn(0.1f, 4.0f) / binding.speedBar.stepSize).roundToInt()
                 .toFloat() * binding.speedBar.stepSize
     }
 
@@ -948,6 +948,8 @@ open class FullScreenPlayer : AbstractPlayerFragment() {
             binding.speed125 to 1.25f,
             binding.speed150 to 1.5f,
             binding.speed200 to 2.0f,
+            binding.speed300 to 3.0f,
+            binding.speed400 to 4.0f,
         )) {
             view.setOnClickListener {
                 setPlayBackSpeed(speed)
@@ -961,7 +963,7 @@ open class FullScreenPlayer : AbstractPlayerFragment() {
         }
 
         binding.speedPlus.setOnClickListener {
-            setPlayBackSpeed(minOf((player.getPlaybackSpeed() + 0.1f), 2.0f))
+            setPlayBackSpeed(minOf((player.getPlaybackSpeed() + 0.1f), 4.0f))
             updateSpeedDialogBinding(binding)
         }
 
